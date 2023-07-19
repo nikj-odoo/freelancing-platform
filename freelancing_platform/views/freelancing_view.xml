@@ -17,6 +17,7 @@
         <field name="model">freelancing.platform</field>
         <field name="arch" type="xml">
             <tree string="Freelancing" decoration-success="state == 'offer received' or state == 'offer accepted'" decoration-bf="state == 'offer Accepted'" decoration-muted="state == 'booked'">
+                <field name="name" />
                 <field name="project_name"/>
                 <field name="description"/>
                 <field name="partner_id"/>
@@ -54,6 +55,11 @@
                     <field name="state" widget="statusbar" options="{'clickable': '1'}"></field>
                 </header> 
                 <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1" />
+                        </h1>
+                    </div>
                     <field name="image" widget='image' nolabel='1' class="oe_avatar" />
                     <group>
                         <group>
@@ -168,7 +174,7 @@
     </record>
 
     <!-- <menu-Item> -->
-    <menuitem id="first_level_menu" name="Freelancing">
+    <menuitem id="first_level_menu" name="Freelancing" web_icon="freelancing_platform,static/description/icon.png">
 
         <menuitem id="menu_advertisement" name="Freelancing" sequence="1">
             <menuitem id="menu_adv_market" name="Property" action="freelancing_platform_action"/>

@@ -17,6 +17,7 @@
     
     'data':[
         'security/ir.model.access.csv',
+        'data/data_seq.xml',
         'views/freelancing_platform_offers.xml',
         'views/freelancing_platform_types.xml',
         'views/freelancing_platform_skills.xml',

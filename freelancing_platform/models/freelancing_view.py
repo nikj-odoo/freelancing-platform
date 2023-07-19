@@ -1,5 +1,5 @@
 from psycopg2 import Date
-from odoo import models,fields,api
+from odoo import models,fields,api, _
 from odoo.exceptions import UserError,ValidationError
 from  datetime import datetime
 
@@ -13,6 +13,8 @@ class freelancing_platform(models.Model):
 
 
     project_name = fields.Char("Project Title", required=True)
+    name = fields.Char(string='Number', required=True, copy=False, readonly=False, index=True,default=lambda self:_('New'))
+
     description = fields.Text("Description")
     partner_id=fields.Many2one("res.partner", string="Company", domain="[('is_company', '=', 'true')]")
     location=fields.Many2one(related="partner_id.state_id", string="Location")
@@ -40,6 +42,12 @@ class freelancing_platform(models.Model):
     _sql_constraints=[('price','CHECK(price >= 0)','A property expected price must be strictly positive.')]
                 
 
+    @api.model
+    def create(self, vals_list):
+        if vals_list.get('name','New') == 'New':
+            vals_list['name'] = self.env['ir.sequence'].next_by_code('freelancing.platform.sequence') or 'New'
+            return super().create(vals_list)
+
     @api.depends('start_date', 'end_date')
     def compute_date_difference(self):
         for record in self:
@@ -65,6 +73,7 @@ class freelancing_platform(models.Model):
 
 
     def action_sold(self):
+            print("solllddddd")
             if self.state == 'cancelld':
                 raise UserError("cancelled property can not be sold")
             else:
