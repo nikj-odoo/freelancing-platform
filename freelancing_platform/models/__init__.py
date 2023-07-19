@@ -1,0 +1,1 @@
+from . import freelancing_view,freelancing_platform_types,freelancing_platform_skills,freelancing_platform_offers,res_partner

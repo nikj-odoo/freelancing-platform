@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="freelancing_platform_skills_action" model="ir.actions.act_window">
+        <field name="name">Skills</field>
+        <field name="res_model">freelancing.platform.skills</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Project, the first step of a new project!
+            </p>
+        </field>
+    </record>
+
+    <record id="freelancing_platform_skills_view_form" model="ir.ui.view">
+        <field name="name">freelancing.platform.skills.view.form</field>
+        <field name="model">freelancing.platform.skills</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="color"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

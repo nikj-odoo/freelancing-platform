@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="freelancing_platform_offers_action" model="ir.actions.act_window">
+        <field name="name">Action Name</field>
+        <field name="res_model">freelancing.platform.offers</field>
+        <field name="view_mode">tree,form</field>
+        
+    </record>
+    <record id="freelancing_platform_offers_view_tree" model="ir.ui.view">
+        <field name="name">freelancing.platform.offers.view.tree</field>
+        <field name="model">freelancing.platform.offers</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="status == 'A'" decoration-bf="status == 'A'" decoration-danger="status == 'D'">
+                <field name="price"/>
+                <field name="status"/>
+                <button name="action_accepted" type="object" icon="fa-check" attrs="{'invisible': [('status', 'in', ['A','D'])]}"/>
+                <button name="action_decline" type="object" icon="fa-times" attrs="{'invisible': [('status', 'in', ['A','D'])]}"/>
+                <field name="e_level"/>
+                <field name="skills_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="sector"/>
+                <!-- <field name="project_id"/> -->
+                <field name="id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="estate_property_offers_view_form" model="ir.ui.view">
+        <field name="name">Freelancing platform</field>
+        <field name="model">freelancing.platform.offers</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="price"/>
+                        <field name="status"/>
+                        <field name="partner_id" domain="[('is_frelasncer','=','1')]"/>
+                        <field name="validity"/>
+                        <field name="date_deadline"/>
+                        <field name="e_level"/>
+                        <field name="sector"/>
+                        <field name="skills_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+
+</odoo>

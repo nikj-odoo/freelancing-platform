@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="freelancing_platform_action" model="ir.actions.act_window">
+        <field name="name">freelancing platform</field>
+        <field name="res_model">freelancing.platform</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Project, the first step of a new project!
+            </p>
+        </field>
+    </record>
+
+    <record id="freelancing_platform_view_tree" model="ir.ui.view">
+        <field name="name">freelancing.platform.view.tree</field>
+        <field name="model">freelancing.platform</field>
+        <field name="arch" type="xml">
+            <tree string="Freelancing" decoration-success="state == 'offer received' or state == 'offer accepted'" decoration-bf="state == 'offer Accepted'" decoration-muted="state == 'booked'">
+                <field name="project_name"/>
+                <field name="description"/>
+                <field name="partner_id"/>
+                <field name="location"/>
+                <field name="price"/>
+                <!-- <field name="time_duration"/> -->
+                <field name="start_date" widget="daterange" string="From" class="oe_inline" options="{'related_end_date': 'end_date'}" />
+                <field name="end_date" widget="daterange" string="To" class="oe_inline" options="{'related_start_date': 'start_date'}" />
+                <field name="duration"/>
+                <field name="responsibility"/>
+                <field name="requirements"/>
+                <field name="experience_level"/>
+                <!-- <field name="job_type"/> -->
+                <field name="proect_type"/>
+                <field name="hire_type"/>
+                <field name="country"/>
+                <field name="state"/>
+                <field name="sector"/>
+                <field name="skills_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="image" widget="image" class="oe_avatar" options='{"size":[80,80]}'/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- <form-view> -->
+
+    <record id="freelancing_platform_view_form" model="ir.ui.view">
+        <field name="name">freelancing.platform.view.form</field>
+        <field name="model">freelancing.platform</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header> 
+                    <button name='action_canceled' type='object' string='cancel' attrs="{'invisible': [('state', 'in', ['booked','cancelld'])]}"/>
+                    <button name='action_sold' type='object' string='Book' attrs="{'invisible': [('state', 'in', ['booked','cancelld'])]}"/>                                           
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"></field>
+                </header> 
+                <sheet>
+                    <field name="image" widget='image' nolabel='1' class="oe_avatar" />
+                    <group>
+                        <group>
+                            <field name="project_name"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="location"/>
+                        </group>
+                        <notebook>
+                            <page string="Description">
+                                <group>
+                                    <field name="price"/>
+                                    <field name="best_offer"/>
+                                    <!-- <field name="time_duration"/> -->
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="duration"/>
+                                    <field name="responsibility"/>
+                                    <field name="requirements"/>
+                                    <field name="experience_level"/>
+                                    <!-- <field name="job_type"/> -->
+                                    <field name="proect_type"/>
+                                    <field name="hire_type"/>
+                                    <field name="country"/>
+                                    <field name="sector"/>
+                                </group>
+                            </page>
+                            <page string="Skills">
+                                <group>
+                                    <field name="project_type_id"/>
+                                    <field name="skills_ids" widget="many2many_tags" options="{'color_field':'color'}"/>
+                                </group>  
+                            </page>
+                            <page string="Offers">
+                                    <field name="offer_ids" attrs="{'readonly': [('state','in', ['cancelld','booked','offer accepted'])]}"/>
+                            </page>
+                            <group>
+                                
+                            </group>
+                        </notebook>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- kanban view -->
+
+    <record id="freelancing_platform_view_kanban" model="ir.ui.view">
+        <field name="name">freelancing.platform.view.kanban</field>
+        <field name="model">freelancing.platform</field>
+        <field name="arch" type="xml">
+            <kanban class="o_res_partner_kanban" default_group_by="project_type_id" records_draggable="0">
+                <field name="price" />
+                <field name="id" />
+                <field name="image" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                            <t t-set="background_image" t-value="kanban_image('freelancing.platform', 'image', record.id.raw_value)" />
+                            
+                            <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image:url('#{background_image}')">
+                                <img class="o_kanban_image_inner_pic" t-if="record.id.raw_value"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <h3>
+                                        <field name="project_name" />
+                                    </h3>
+                                </strong>
+                                <!-- Time Duration:<field name="time_duration" /> -->
+                                <div class="col-12">
+                                    Best Price:<field name="best_offer" />
+                                </div>
+                                <div class="col-12"> Location:<field name="location" />
+                                </div>
+                                <div class="col-12">
+                                    <field name="skills_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
+                                </div>
+                                    
+                                    <progressbar field="state" colors='{"booked": "success", "cancelld": "danger", "new": "purple"}' />
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    
+    <!-- <search-view> -->
+
+    <record id="freelancing_platform_view_search" model="ir.ui.view">
+        <field name="name">freelancing.platform.view.search</field>
+        <field name="model">freelancing.platform</field>
+        <field name="arch" type="xml">
+            <search string="Freelancing Platform">
+                    <field name="project_name"/>
+                    <field name="experience_level"/>
+                    <field name="price"/>
+                    <field name="location"/>
+                    <field name="project_type_id"/>
+                    <field name="partner_id"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- <menu-Item> -->
+    <menuitem id="first_level_menu" name="Freelancing">
+
+        <menuitem id="menu_advertisement" name="Freelancing" sequence="1">
+            <menuitem id="menu_adv_market" name="Property" action="freelancing_platform_action"/>
+        </menuitem>
+
+        <menuitem id="menu_finance_receivables" name="Configuration" sequence="2">
+            <menuitem id="menu_pro" name="Project Types" sequence="1" action="freelancing_platform.freelancing_platform_types_action"/>
+            <menuitem id="menu_pro_skills" name="Project Skills" sequence="2" action="freelancing_platform.freelancing_platform_skills_action"/>
+            
+        </menuitem>
+    </menuitem>
+
+    <!-- <menuitem id="menu_pro_tags" name="project Tags" parent="menu_setting" action="estate.estate_property_tags_action"/> -->
+
+</odoo>
