@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <record id="fp_skill" model="freelancing.platform.skills">
+            <field name="name">Python</field>
+        </record>
+        <record id="fp_skill2" model="freelancing.platform.skills">
+            <field name="name">Java</field>
+        </record>
+        <record id="fp_skill3" model="freelancing.platform.skills">
+            <field name="name">Javascript</field>
+        </record>
+        <record id="fp_skill4" model="freelancing.platform.skills">
+            <field name="name">MYSQL</field>
+        </record>
+        <record id="fp_skill5" model="freelancing.platform.skills">
+            <field name="name">MONGODB</field>
+        </record>
+</odoo>

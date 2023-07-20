@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <record id="fp_type1" model="freelancing.platform.types">
+            <field name="name">Web Development</field>
+        </record>
+        <record id="fp_type2" model="freelancing.platform.types">
+            <field name="name">App Development</field>
+        </record>
+        <record id="fp_type3" model="freelancing.platform.types">
+            <field name="name">Software Development</field>
+        </record>
+        
+</odoo>

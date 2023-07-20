@@ -4,7 +4,7 @@
     'author': "Odoo",
     'version': '1.0',
     'description':""" This is the module for self learing""",
-    'category': 'Industry',
+    'category': 'Admin/Freelancer',
     'depends' : ['mail','contacts'],
     'installable': True,
     'application': True,
@@ -16,6 +16,7 @@
     'installable':True,
     
     'data':[
+        'security/freelancing_security.xml',
         'security/ir.model.access.csv',
         'data/data_seq.xml',
         'views/freelancing_platform_offers.xml',
@@ -23,5 +24,10 @@
         'views/freelancing_platform_skills.xml',
         'views/freelancing_view.xml'
         
-        ]
+        ],
+    "demo": [
+        "demo/freelancing_skills.xml",
+        "demo/freelancing_types.xml",
+        "demo/fp_view.xml",
+    ]
 }

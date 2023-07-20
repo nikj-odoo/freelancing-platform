@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="fp_data" model="freelancing.platform">
+            <field name="project_name">LMS</field>
+            <field name="description">Library Management System</field>
+            <field name="experience_level">entry</field>
+            <field name="proect_type">starting</field>
+            <field name="sector">it</field>
+            <field name="project_type_id" ref="fp_type1"></field>
+            <field name="skills_ids" eval="[ref('fp_skill'),ref('fp_skill2')]"></field>
+        </record>
+
+        <record id="fp_data1" model="freelancing.platform">
+            <field name="project_name">HMS</field>
+            <field name="description">Hospital Management System</field>
+            <field name="experience_level">entry</field>
+            <field name="proect_type">starting</field>
+            <field name="sector">it</field>
+            <field name="project_type_id" ref="fp_type1"></field>
+            <field name="skills_ids" eval="[ref('fp_skill'),ref('fp_skill2')]"></field>
+        </record>
+    </data>
+</odoo>
