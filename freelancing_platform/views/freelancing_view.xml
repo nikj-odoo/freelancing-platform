@@ -183,6 +183,7 @@
         <menuitem id="menu_finance_receivables" name="Configuration" sequence="2">
             <menuitem id="menu_pro" name="Project Types" sequence="1" action="freelancing_platform.freelancing_platform_types_action"/>
             <menuitem id="menu_pro_skills" name="Project Skills" sequence="2" action="freelancing_platform.freelancing_platform_skills_action"/>
+            <menuitem id="menu_wizard" name="Wizard" sequence="3" action="freelancing_platform.fp_offer_wizard"/>
             
         </menuitem>
     </menuitem>

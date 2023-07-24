@@ -11,23 +11,21 @@
     </record>
 
 
-    <!-- <record id="agent_property_rule" model="ir.rule">
+    <record id="agent_property_rule" model="ir.rule">
         <field name="name">See only property</field>
-        <field name="model_id" ref="model_estate_property"/>
-        <field name="groups" eval="[(4, ref('estate_group_user'))]"/>
+        <field name="model_id" ref="model_freelancing_platform"/>
+        <field name="groups" eval="[(4, ref('group_freelancer'))]"/>
 
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
         <field name="perm_create" eval="False"/>
         <field name="perm_unlink" eval="False"/>
         <field name="domain_force">[
-        '|', ('salesperson_id', '=', user.id),
-                ('salesperson_id', '=', False)
-    ]</field>
+        ('state', 'in', ['new','offer received'])]</field>
 
     </record>
 
-    <record id="manager_property_rule" model="ir.rule">
+    <!-- <record id="manager_property_rule" model="ir.rule">
         <field name="name">all properties</field>
         <field name="model_id" ref="model_estate_property"/>
         <field name="groups" eval="[(4, ref('estate_group_manager'))]"/>

@@ -44,7 +44,7 @@ class freelancing_platform_offers(models.Model):
     @api.model
     def create(self,vals):
         print("=====================================", self)
-        if  self.project_id.skills_ids.ids not in self.skills_ids.ids:
+        if  self.project_id.skills_ids.ids in self.skills_ids.ids:
             raise UserError("Please Enter Required Skills")
         return super().create(vals)
     
