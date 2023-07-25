@@ -29,7 +29,7 @@ class freelancing_platform(models.Model):
     # job_type =fields.Selection([('office',  'Office'),('remote', 'Remote'),('hybrid', 'Hybrid')])
     proect_type=fields.Selection([('starting',  'Starting'),('ongoing', 'Ongoing'),('maintanance', 'Maintanance')])
     hire_type=fields.Char("Hired Type")
-    country=fields.Many2one(related='partner_id.country_id',string="Country")
+    country=fields.Many2one(related='partner_id.country_id',string="Country")       
     sector=fields.Selection([('it',  'IT'),('financial', 'Financial'),('manufacturing', 'Manufacturing'),('e-commerse', 'E-Commerse')])
     project_type_id=fields.Many2one('freelancing.platform.types',string="Project Type")
     skills_ids=fields.Many2many('freelancing.platform.skills',string="Add Skills")
@@ -39,7 +39,7 @@ class freelancing_platform(models.Model):
     best_offer=fields.Float("Best Offer",compute="_compute_best_offer",store=True)
     state = fields.Selection([('new',  'New'),('offer received', 'Offer Received'),('offer accepted', 'Offer Accepted'),('booked','Booked'),('cancelld','Cancelled ')], 'State',default='new',copy=False,required=True)
     
-    _sql_constraints=[('price','CHECK(price >= 0)','A property expected price must be strictly positive.')]
+    _sql_constraints=[('price','CHECK(price >= 0)','A project expected price must be strictly positive.')]
                 
 
     @api.model
@@ -47,6 +47,7 @@ class freelancing_platform(models.Model):
         if vals_list.get('name','New') == 'New':
             vals_list['name'] = self.env['ir.sequence'].next_by_code('freelancing.platform.sequence') or 'New'
             return super().create(vals_list)
+        
 
     @api.depends('start_date', 'end_date')
     def compute_date_difference(self):
