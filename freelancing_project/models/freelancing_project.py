@@ -14,10 +14,20 @@ class freelancing_project(models.Model):
             'name': project_name,
         })
         
-        self.env['project.task'].create(
-            {
-                'project_id':4,
-                'name':'abc'
-            }
-        )
+        # self.env['project.task'].create(
+        #     {
+        #         'project_id':4,
+        #         'name':'abc'
+        #     }
+        # )
+        
         return super().create(vals)
+    
+    # def action_close_dialog(self):
+    #     print("===========close dialog")
+    #     self.env['project.task'].create()
+    #     {
+    #             'project_id':4,
+    #             'name':'nik'
+    #     }
+    #     return super().action_close_dialog()

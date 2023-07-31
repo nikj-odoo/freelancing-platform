@@ -5,7 +5,7 @@
     'version': '1.0',
     'description':""" This is the module for self learing""",
     'category': 'Admin/Freelancer',
-    'depends' : ['mail','contacts'],
+    'depends' : ['mail','contacts','website'],
     'installable': True,
     'application': True,
     'license': 'LGPL-3',
@@ -24,7 +24,10 @@
         'views/inherited_user_view.xml',
         'views/freelancing_platform_types.xml',
         'views/freelancing_platform_skills.xml',
-        'views/freelancing_view.xml'
+        'views/freelancing_view.xml', 
+        'views/menu_web.xml',
+        'views/template_controller.xml'
+        
         
         ],
     "demo": [

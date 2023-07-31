@@ -8,7 +8,7 @@ class freelancing_platform(models.Model):
     _description = 'This Is Freelancing Platform'
     _inherit=['mail.thread','mail.activity.mixin']
     _rec_name="project_name"
-    _log_access=False
+    # _log_access=False
     _order = "id desc"
 
 
@@ -90,3 +90,4 @@ class freelancing_platform(models.Model):
         for record in self:
             if record.offer_ids:
                 record.state="offer received"
+                

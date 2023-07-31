@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<odoo>
+    <template id="index">
+        <t t-call="website.layout">
+            <nav class="navbar navbar-light border-top shadow-sm d-print-none">
+                <div class="container">
+                    <div class="d-flex flex-column flex-sm-row justify-content-between w-100">
+                        <span class="navbar-brand h4 my-0 me-auto pe-sm-4" data-oe-model="ir.ui.view" data-oe-id="4389" data-oe-field="arch" data-oe-xpath="/t[1]/nav[1]/div[1]/div[1]/span[1]">Projects</span>
+                        <ul class="o_wevent_index_topbar_filters nav">
+                            <li class="nav-item dropdown me-2 my-1">
+                                <a href="#" role="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="fa fa-folder-open" data-oe-model="ir.ui.view" data-oe-id="4389" data-oe-field="arch" data-oe-xpath="/t[1]/nav[1]/div[1]/div[1]/ul[1]/t[1]/li[1]/a[1]/i[1]"></i>
+                                Experience
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="/event?tags=%5B5%5D&amp;debug=0" class="dropdown-item d-flex align-items-center justify-content-between ">
+                                        Entry
+                                    </a>
+                                    <a href="/event?tags=%5B6%5D&amp;debug=0" class="dropdown-item d-flex align-items-center justify-content-between ">
+                                        Intermediate
+                                    </a>
+                                    <a href="/event?tags=%5B7%5D&amp;debug=0" class="dropdown-item d-flex align-items-center justify-content-between ">
+                                        Expert
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown me-2 my-1">
+                                <a href="#" role="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="fa fa-folder-open" data-oe-model="ir.ui.view" data-oe-id="4389" data-oe-field="arch" data-oe-xpath="/t[1]/nav[1]/div[1]/div[1]/ul[1]/t[1]/li[1]/a[1]/i[1]"></i>
+                                Type
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="/event?tags=%5B8%5D&amp;debug=0" class="dropdown-item d-flex align-items-center justify-content-between ">
+                                        Start-up Project
+                                    </a>
+                                    <a href="/event?tags=%5B9%5D&amp;debug=0" class="dropdown-item d-flex align-items-center justify-content-between ">
+                                        Upcoming Project
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown me-2 my-1">
+                                <a href="#" role="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="fa fa-folder-open" data-oe-model="ir.ui.view" data-oe-id="4389" data-oe-field="arch" data-oe-xpath="/t[1]/nav[1]/div[1]/div[1]/ul[1]/t[1]/li[1]/a[1]/i[1]"></i>
+                                Sector
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="/event?tags=%5B8%5D&amp;debug=0" class="dropdown-item d-flex align-items-center justify-content-between ">
+                                        IT
+                                    </a>
+                                    <a href="/event?tags=%5B9%5D&amp;debug=0" class="dropdown-item d-flex align-items-center justify-content-between ">
+                                        Financial
+                                    </a>
+                                    <a href="/event?tags=%5B9%5D&amp;debug=0" class="dropdown-item d-flex align-items-center justify-content-between ">
+                                        E-commerse
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown me-2 my-1">
+                                <a href="#" role="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="fa fa-calendar" data-oe-model="ir.ui.view" data-oe-id="4391" data-oe-field="arch" data-oe-xpath="/data/xpath/li/a[1]/i[1]"></i>
+                Upcoming Project
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="/event?date=upcoming&amp;debug=0" class="dropdown-item d-flex align-items-center justify-content-between active">
+                            Upcoming Project
+                                        <span class="badge rounded-pill bg-light text-primary ms-3">7</span>
+                                    </a>
+                                    <a href="/event?date=today&amp;debug=0" class="dropdown-item d-flex align-items-center justify-content-between ">
+                            Today
+                                        <span class="badge rounded-pill bg-primary ms-3">1</span>
+                                    </a>
+                                    <a href="/event?date=month&amp;debug=0" class="dropdown-item d-flex align-items-center justify-content-between ">
+                            This month
+                                        <span class="badge rounded-pill bg-primary ms-3">2</span>
+                                    </a>
+
+                                </div>
+                            </li>
+                            <div class="o_pricelist_dropdown dropdown d-none d-lg-inline me-2 my-1">
+
+                                <a role="button" href="#" data-bs-toggle="dropdown" class="dropdown-toggle btn btn-">
+                Default USD pricelist
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <a role="menuitem" class="dropdown-item" href="/shop/change_pricelist/8">
+                                        <span class="switcher_pricelist" data-pl_id="8">EUR</span>
+                                    </a>
+                                    <a role="menuitem" class="dropdown-item" href="/shop/change_pricelist/3">
+                                        <span class="switcher_pricelist" data-pl_id="3">Default USD pricelist</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </ul>
+                        <div class="d-flex align-items-center flex-wrap ps-sm-3 pe-0">
+                            <form method="get" class="o_searchbar_form o_wait_lazy_js s_searchbar_input " action="/event" data-snippet="s_searchbar_input">
+                                <div role="search" class="input-group o_wevent_event_searchbar_form w-100 my-1 my-lg-0 ">
+                                    <input type="search" name="search" data-oe-model="ir.ui.view" data-oe-id="2658" data-oe-field="arch" data-oe-xpath="/data/xpath[3]/form/t[1]/div[1]/input[1]" class="search-query form-control oe_search_box None" placeholder="Search an event..." value="" data-search-type="events" data-limit="5" data-display-image="true" data-display-description="true" data-display-extra-link="true" data-display-detail="false" data-order-by="name asc"/>
+                                    <button type="submit" aria-label="Search" title="Search" class="btn oe_search_button btn-primary">
+                                        <i class="oi oi-search" data-oe-model="ir.ui.view" data-oe-id="2658" data-oe-field="arch" data-oe-xpath="/data/xpath[3]/form/t[1]/div[1]/button[1]/i[1]"></i>
+                                    </button>
+                                </div>
+
+                                <input name="order" type="hidden" class="o_search_order_by" data-oe-model="ir.ui.view" data-oe-id="2658" data-oe-field="arch" data-oe-xpath="/data/xpath[3]/form/input[1]" value="name asc"/>
+
+                                <input type="hidden" data-oe-model="ir.ui.view" data-oe-id="4416" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/t[8]/input[1]" name="debug" value="0"/>
+                                <input type="hidden" data-oe-model="ir.ui.view" data-oe-id="4416" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/t[8]/input[1]" name="date" value="upcoming"/>
+                                <input type="hidden" data-oe-model="ir.ui.view" data-oe-id="4416" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/t[8]/input[1]" name="tags" value=""/>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="date_picker" style="margin:0 2rem 0 2rem">
+            </div>
+            <t t-set="title">Project</t>
+            <br/>
+            <br/>
+            <br/>
+            <div class="navbar navbar-light border-top shadow-sm d-print-none">
+                <div class="container">
+                    
+                    <div class="row row-cols-2 row-cols-md-3">
+                        <t t-foreach="teachers" t-as="teacher">
+                            <div class="col mb-3">
+                                <div class="card" style="width:300px;margin:20px">
+                                    <header class="overflow-hidden bg-secondary col-12 ">
+                                        <div class="d-block h-100 w-100">
+                                            <div data-name="Cover" data-res-model="event.event" data-res-id="1" class="o_record_cover_container d-flex flex-column h-100 o_colored_level o_cc    ">
+                                                <div data-oe-model="ir.ui.view" data-oe-id="2633" data-oe-field="arch" data-oe-xpath="/t[1]/div[1]/div[1]" class="o_record_cover_component o_record_cover_image " ></div>
+                                                <div class="o_wevent_event_date position-absolute shadow-sm o_not_editable">
+                                                    <span class="o_wevent_event_month" data-oe-type="datetime" data-oe-expression="event.date_begin">Aug</span>
+                                                    <span class="o_wevent_event_day oe_hide_on_date_edit" data-oe-type="datetime" data-oe-expression="event.date_begin">09</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </header>
+                                    <center>
+                                        <img t-attf-src="data:image/png;base64,{{teacher.image}}" class="card-img-top embed-responsive-item" style="width:300px;height:200px"/>
+                                    </center>
+                                    <div class="col-12 h-100 position-relative">
+                                    <div class="card-body">
+                                        <h5 class="card-title mt-2 mb-0 text-truncate">
+                                            <a t-attf-href="/estate/{{ slug(teacher) }}">
+                                                <span t-out="teacher.project_name"/>
+                                            </a>
+                                        </h5>
+                                        <h5 class="card-title mt-2 mb-0 text-truncate">
+                                            <a t-attf-href="/estate/{{ slug(teacher) }}">
+                                                <span t-out="teacher.description"/>
+                                            </a>
+                                        </h5>
+
+                                        <p style="font-size:12px;">
+                                            price :<span t-out="teacher.price"/>
+                                        </p>
+                                        <center>
+                                            <a t-attf-href="/freelancing_platform/{{ slug(teacher) }}" class="btn btn-outline-info btn-sm">
+                                            View details
+                                            </a>
+                                        </center>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+
+                    </div>
+                </div>
+            </div>
+            <div class="products_pager d-flex justify-content-center pt-5 pb-3">
+                <t t-call="website.pager"/>
+            </div>
+        </t>
+    </template>
+
+    <!-- Details Of Property -->
+
+    <template id="description">
+        <t t-call="website.layout">
+            <t t-set="title">freelancing</t>
+            <div class="oe_structure"/>
+            <div class="oe_structure">
+            </div>
+            <div class="oe_structure"/>
+            <!-- <h1>hello</h1> -->
+            <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-5 fw-bolder text-white mb-2" t-out="freelancing.project_name"></h1>
+                                <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
+                                <h4 class="display-8 fw-bolder text-white mb-2">Salesperson: <span t-out="freelancing.partner_id.name"></span>
+                                </h4>
+                                <h4 class="display-8 fw-bolder text-white mb-2">Project Type : <span t-out="freelancing.project_type_id.name"></span>
+                                </h4>
+                                <h4>
+                                    <t t-foreach="freelancing.skills_ids" t-as="tags">
+                                        <span t-field="tags.name" class="display-8 badge text-bg-primary"/>
+                                    </t>
+                                </h4>
+                                <h4 class="display-8 fw-bolder text-white mb-2">Price: <span t-out="freelancing.price"></span>
+                                </h4>
+                                <!-- <h4 class="display-8 fw-bolder text-white mb-2">Selling Price: <span t-out="property.selling_price"></span>
+                                </h4>
+                                <h4 class="display-8 fw-bolder text-white mb-2">Best Offer: <span t-out="property.best_offer"></span>
+                                </h4> -->
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Show Interest</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                            <img t-attf-src="data:image/png;base64,{{freelancing.image}}" style="float:right;width:400px;height:400px;"/>
+                        </div>
+
+
+                    </div>
+                </div>
+            </header>
+
+        </t>
+    </template>
+</odoo>
